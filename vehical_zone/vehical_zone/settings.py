@@ -39,8 +39,19 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'pages',
     'Vehical',
+    'accounts',
     'ckeditor',
-    'django.contrib.humanize'
+    'django_rename_app',
+    'django.contrib.humanize',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    #providers
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.google',
+    'contacts',
+
 ]
 
 MIDDLEWARE = [
@@ -51,9 +62,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
+
 ]
 
 ROOT_URLCONF = 'vehical_zone.urls'
+LOGIN_REDIRECT_URL = 'dashboard'
+
 
 TEMPLATES = [
     {
@@ -133,3 +148,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_ROOT=BASE_DIR / 'media'
 MEDIA_URL='/media/'
+
+
+
+from django.contrib.messages import constants as messages
+
+MESSAGE_TAGS = {
+    messages.ERROR: "danger ",
+    50: "critical",
+}
+
+SITE_ID=1

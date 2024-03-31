@@ -117,10 +117,3 @@ class Vehical(models.Model):
 
     def __str__(self):
         return self.vehical_title
-
-
-
-
-
-
-

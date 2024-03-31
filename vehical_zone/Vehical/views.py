@@ -63,9 +63,10 @@ def search(request):
         max_price = request.GET['max_price'].strip()  # Trim whitespace
         if max_price:
             vehicals = vehicals.filter(price__gte=min_price, price__lte=max_price)
-
+    
     data = {
         'vehicals': vehicals
     }
+    print(data)
 
     return render(request, 'vehical/search.html', data)
